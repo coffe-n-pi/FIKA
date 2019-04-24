@@ -14,10 +14,6 @@ import React from 'react';
 /* eslint-disable react/prefer-stateless-function */
 export default class Debug extends React.PureComponent {
   render() {
-    return (
-      <h1>
-        Debug
-      </h1>
-    );
+    return '<h1>Debug</h1>';
   }
 }
