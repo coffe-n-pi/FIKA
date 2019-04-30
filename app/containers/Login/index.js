@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '/Users/Roth/Documents/KTH/II1302/FIKA/app/components/LoginForm/index.js';
+import LoginForm from '../../components/LoginForm/index.js';
 
 export class LoginPage extends React.Component {
     render() { 

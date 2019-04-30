@@ -19,7 +19,7 @@ export default class HomePage extends React.PureComponent {
     return (
       <h1>
         <FormattedMessage {...messages.header} />
-      </h1>
+      </h1>     
     );
   }
 }
