@@ -13,7 +13,8 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import Debug from 'containers/Debug/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import LoginPage from 'containers/Login/LoginPage'
+import LoginPage from 'containers/Login/index'
+import LoginPage2 from 'containers/Login/LoginPage'
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
