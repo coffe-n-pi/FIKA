@@ -1,24 +1,20 @@
-import React from "react";
-import "../../components/css/Login.css";
+import React from 'react';
+import '../css/Login.css';
 
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
-class Login extends React.Component {
-  render() {
-    return (
-      <div className="box-container">
-        <LoginBox />
-      </div>
-    );
-  }
-}
+const Login = () => (
+  <div className="box-container">
+    <LoginBox />
+  </div>
+);
 
 class LoginBox extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,19 +22,19 @@ class LoginBox extends React.Component {
   }
 
   handleChange(e) {
-    let target = e.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
+    const { target } = e;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following values:");
+    console.log('The form was submitted with the following values:');
     console.log(this.state);
   }
 
