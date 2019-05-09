@@ -3,6 +3,11 @@
 const express = require('express');
 const logger = require('./logger');
 
+/* Google auth requires. */
+const passport = require('passport');
+const session = require('express-session');
+require('./middlewares/config/passport');
+
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
@@ -16,6 +21,28 @@ const app = express();
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
+
+/* **** GOOGLE OAuth **** */
+app.use(session({secret: 'kitty-kat'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* Login to Google. */
+app.get(
+  '/auth',
+  passport.authenticate('google', {scope: ['profile', 'email']})
+);
+
+/* Login callback. */
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/',
+    session: true
+  })
+);
+/*******/
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

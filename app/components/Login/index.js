@@ -1,8 +1,7 @@
 import React from 'react';
 import '../css/Login.css';
-
-// const bcrypt = require('bcrypt');
-
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 const Login = () => (
   <div className="box-container">
     <LoginBox />
@@ -40,39 +39,21 @@ class LoginBox extends React.Component {
 
   render() {
     return (
-      <div className="inner-container">
-        <div className="header">Login</div>
+<Grid
+  container
+  spacing={0}
+  alignItems="center"
+  justify="center"
+  style={{ minHeight: '100vh' }}
+>
 
-        <div className="box">
-          <div className="input-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="username"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </div>
+  <Grid item xs={3}>
+  hellooo  
+  </Grid>   
 
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-
-        <button type="button" className="login-btn" onClick={this.handleSubmit}>
-          Login
-        </button>
-      </div>
-    );
+</Grid> 
+        );
   }
 }
 
-export default Login;
+  export default Login;
