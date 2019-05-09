@@ -40,7 +40,6 @@ app.listen(port, host, async err => {
   if (err) {
     return logger.error(err.message);
   }
-
   // Connect to ngrok in dev mode
   if (ngrok) {
     let url;
