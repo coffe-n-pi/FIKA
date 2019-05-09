@@ -10,10 +10,10 @@
  */
 
 import React from 'react';
-import Graph from '../../components/Graph/index';
+import Graph from '../Graph/index';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
+export default class MainPage extends React.PureComponent {
   render() {
     return <Graph id="g" />;
   }
