@@ -48,7 +48,7 @@ class LoginBox extends React.Component {
 >
 
   <Grid item xs={3}>
-  hellooo  
+  hellooo
   </Grid>   
 
 </Grid> 
