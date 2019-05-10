@@ -116,7 +116,7 @@ function FrontPage(props) {
                   </Avatar>
                   <Button
                     onClick={() => {
-                      window.location.href = 'http://localhost:3000/auth';
+                      window.location.href = '/auth';
                     }}
                     className={classes.button}
                     variant="contained"
