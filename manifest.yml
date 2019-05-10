@@ -1,6 +1,5 @@
 applications:
 - name: FIKA
-  random-route: true
   memory: 128M
   buildpack: sdk-for-nodejs
   services:
