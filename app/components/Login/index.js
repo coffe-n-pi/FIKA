@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/Login.css';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 const Login = () => (
   <div className="box-container">
     <LoginBox />
@@ -39,21 +38,19 @@ class LoginBox extends React.Component {
 
   render() {
     return (
-<Grid
-  container
-  spacing={0}
-  alignItems="center"
-  justify="center"
-  style={{ minHeight: '100vh' }}
->
-
-  <Grid item xs={3}>
-  hellooo  
-  </Grid>   
-
-</Grid> 
-        );
+      <Grid
+        container
+        spacing={0}
+        alignItems="center"
+        justify="center"
+        style={{ minHeight: '100vh' }}
+      >
+        <Grid item xs={3}>
+          hellooo
+        </Grid>
+      </Grid>
+    );
   }
 }
 
-  export default Login;
+export default Login;
