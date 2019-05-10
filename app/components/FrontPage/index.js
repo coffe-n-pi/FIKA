@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Avatar from '@material-ui/core/Avatar';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -16,6 +18,10 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
+  avatar: {
+    margin: 'auto',
+    backgroundColor: theme.palette.secondary.main,
+  },
   pitch: {
     marginTop: 8,
     align: 'center',
@@ -28,7 +34,7 @@ const styles = theme => ({
     height: 100,
   },
   button: {
-    marginTop: 8,
+    marginTop: 30,
   },
   appBar: {
     position: 'relative',
@@ -70,8 +76,6 @@ const styles = theme => ({
   },
 });
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
 function FrontPage(props) {
   const { classes } = props;
 
@@ -112,17 +116,17 @@ function FrontPage(props) {
               </Grid>
               <Grid item>
                 <Paper className={classes.paper} elevation={3}>
-                  <Typography variant="h5" component="h3" align="center">
-                    Sign in
-                  </Typography>
+                  <Avatar className={classes.avatar} align="center">
+                    <LockOutlinedIcon />
+                  </Avatar>
                   <Button
                     onClick={() => {
-                        window.location.href = "http://localhost:3000/auth";
+                      window.location.href = 'http://localhost:3000/auth';
                     }}
                     className={classes.button}
                     variant="contained"
                     color="default"
-                    fullWidth = "true"
+                    fullWidth="true"
                   >
                     Logga in
                   </Button>
