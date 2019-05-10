@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
-
 function createWebpackMiddleware(compiler, publicPath) {
   return webpackDevMiddleware(compiler, {
     logLevel: 'warn',
@@ -31,17 +30,13 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
     if (req.user) return next();
     return res.redirect('/');
   }
-
-  app.get('*',
-          isAuthenticated,
-          (req, res) => {
-            fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
-              if (err) {
-                res.sendStatus(404);
-              } else {
-                res.send(file.toString());
-              }
-            });
-          }
-         );
+  app.get('*', isAuthenticated, (req, res) => {
+    fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
+      if (err) {
+        res.sendStatus(404);
+      } else {
+        res.send(file.toString());
+      }
+    });
+  });
 };

@@ -15,7 +15,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import SimpleLineChart from './SimpleLineChart';
-import BarChart from '../Graph/index';
 
 const drawerWidth = 240;
 
@@ -150,7 +149,6 @@ class Dashboard extends React.Component {
               color="inherit"
               component="h1"
               variant="h6"
-              color="inherit"
               noWrap
               className="Logout"
             >

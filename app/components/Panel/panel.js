@@ -1,6 +1,8 @@
 import React from 'react';
 import './panel.css';
 import panelFunc from './logic';
+import PanelButton from './panel_button';
+
 export default function Panel() {
   return (
     <div className="panel_area">
@@ -11,13 +13,7 @@ export default function Panel() {
       </div>
       <div className="main_panel">
         <div>
-          <button
-            className="panel_drop_down"
-            type="button"
-            onClick={() => panelFunc('1')}
-          >
-            Panel1
-          </button>
+          <PanelButton name="Panel1" handleClick={panelFunc} number={1} />
           <div className="panel_content hide">
             THIS IS CONTENT FOR PANEL 1! blablabla
             blablablablablablablablablablablablabla
@@ -27,13 +23,7 @@ export default function Panel() {
         </div>
 
         <div>
-          <button
-            className="panel_drop_down"
-            type="button"
-            onClick={() => panelFunc('2')}
-          >
-            Panel2
-          </button>
+          <PanelButton name="Panel2" handleClick={panelFunc} number={2} />
           <div className="panel_content hide">
             THIS IS CONTENT FOR PANEL 2! blablabla
             blablablablablablablablablablablablabla

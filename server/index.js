@@ -18,32 +18,26 @@ const ngrok =
     : false;
 const { resolve } = require('path');
 const app = express();
-
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
-
 /* **** GOOGLE OAuth **** */
-app.use(session({secret: 'kitty-kat'}));
+app.use(session({ secret: 'kitty-kat' }));
 app.use(passport.initialize());
 app.use(passport.session());
-
 /* Login to Google. */
 app.get(
   '/auth',
-  passport.authenticate('google', {scope: ['profile', 'email']})
+  passport.authenticate('google', { scope: ['profile', 'email'] }),
 );
-
 /* Login callback. */
 app.get(
   '/auth/google/callback',
   passport.authenticate('google', {
     successRedirect: '/dashboard',
     failureRedirect: '/',
-    session: true
-  })
+    session: true,
+  }),
 );
-/*******/
-
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
