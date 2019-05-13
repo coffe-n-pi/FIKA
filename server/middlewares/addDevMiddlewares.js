@@ -27,7 +27,10 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
   const fs = middleware.fileSystem;
 
   function isAuthenticated(req, res, next) {
-    if (req.user) return next();
+    if (req.user) {
+      console.log(req.user);
+      return next();
+    }
     return res.redirect('/');
   }
   app.get('*', isAuthenticated, (req, res) => {

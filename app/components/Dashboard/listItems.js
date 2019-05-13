@@ -6,23 +6,27 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem
+      button
+      onClick={() => {
+        window.location.href = '/dashboard';
+      }}
+    >
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Panel 1" />
+      <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem
+      button
+      onClick={() => {
+        window.location.href = 'http://130.237.20.126:9003/video_feed';
+      }}
+    >
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Panel 2" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Panel 3" />
+      <ListItemText primary="Latest Image" />
     </ListItem>
   </div>
 );
