@@ -1,5 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const keys = require('./keys');
 const isProd = process.env.NODE_ENV === 'production';
 
 let CALLBACK_URL = 'http://localhost:3000/auth/google/callback';
@@ -18,9 +19,8 @@ passport.deserializeUser((user, done) => {
 passport.use(
   new GoogleStrategy(
     {
-      clientID:
-        '79874803324-ib9h851mukndboukc7tci0me53c7av70.apps.googleusercontent.com',
-      clientSecret: '_OOD6i7RYu8whD3URyzPnMV3',
+      clientID: keys.google.clientID,
+      clientSecret: keys.google.clientSecret,
       callbackURL: CALLBACK_URL,
     },
     (accessToken, refreshToken, profile, done) => {
