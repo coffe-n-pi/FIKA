@@ -102,14 +102,18 @@ const styles = theme => ({
 class Dashboard extends React.Component {
   state = {
     open: false,
-    currentComponent: <SimpleLineChart />,
+    currentComponent: <SimpleLineChart date="2019/05/10" />,
     component: true,
   };
 
   showComponent = () => {
     const c = this.state.component;
     this.setState({
-      currentComponent: c ? <ViewImage /> : <SimpleLineChart />,
+      currentComponent: c ? (
+        <ViewImage />
+      ) : (
+        <SimpleLineChart date="2019/05/10" />
+      ),
       component: !c,
     });
   };

@@ -61,8 +61,10 @@
   "dependencies": {
     "@babel/polyfill": "7.0.0",
     "@cloudant/cloudant": "^4.1.0",
+    "@d3fc/d3fc-sample": "^4.0.7",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
     "cfenv": "^1.2.2",
     "chalk": "^2.4.1",
@@ -70,6 +72,7 @@
     "connected-react-router": "4.5.0",
     "cross-env": "5.2.0",
     "d3": "^5.9.2",
+    "d3fc": "^14.0.39",
     "express": "4.16.4",
     "express-session": "^1.16.1",
     "fontfaceobserver": "2.0.13",
