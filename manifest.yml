@@ -4,3 +4,4 @@ applications:
   buildpack: sdk-for-nodejs
   services:
   - Matterhorn
+  - DNDM
