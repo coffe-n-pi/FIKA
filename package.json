@@ -63,6 +63,7 @@
     "@cloudant/cloudant": "^4.1.0",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
     "cfenv": "^1.2.2",
     "chalk": "^2.4.1",

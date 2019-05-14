@@ -2,11 +2,20 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import axios from 'axios';
 
 class SimpleMenu extends React.Component {
   state = {
     anchorEl: null,
+    dates: [],
   };
+
+  componentDidMount() {
+    axios.get('/api/getDates').then(res => {
+      const { dates } = res.data;
+      this.setState({ dates });
+    });
+  }
 
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -34,9 +43,12 @@ class SimpleMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleClose}>Date 1</MenuItem>
-          <MenuItem onClick={this.handleClose}>Date 2</MenuItem>
-          <MenuItem onClick={this.handleClose}>Date 3</MenuItem>
+          {this.state.dates
+            .slice(0)
+            .reverse()
+            .map(date => (
+              <MenuItem onClick={this.handleClose}>{date}</MenuItem>
+            ))}
         </Menu>
       </div>
     );
