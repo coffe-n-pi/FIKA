@@ -23,7 +23,7 @@ class SimpleLineChart extends Component {
 
   formatXAxis(tickItem) {
     // If using moment.js
-    return moment(tickItem).format('HH:mm:s');
+    return moment(tickItem).format('HH:mm');
   }
 
   componentDidMount() {
@@ -72,6 +72,7 @@ class SimpleLineChart extends Component {
               dotstroke="#8884d8"
               fillOpacity={1}
               fill="url(#colorUv)"
+              dot
             />
           </AreaChart>
         </ResponsiveContainer>
