@@ -13,7 +13,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from './listItems';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ViewImage from './ViewImage';
 import SimpleLineChart from './SimpleLineChart';
 
 const drawerWidth = 240;
@@ -98,6 +102,16 @@ const styles = theme => ({
 class Dashboard extends React.Component {
   state = {
     open: false,
+    currentComponent: <SimpleLineChart />,
+    component: true,
+  };
+
+  showComponent = () => {
+    const c = this.state.component;
+    this.setState({
+      currentComponent: c ? <ViewImage /> : <SimpleLineChart />,
+      component: !c,
+    });
   };
 
   handleDrawerOpen = () => {
@@ -172,16 +186,43 @@ class Dashboard extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>{mainListItems}</List>
+
+          <List>
+            <div>
+              <ListItem
+                button
+                onClick={() => {
+                  this.showComponent();
+                }}
+              >
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+
+              <ListItem
+                button
+                onClick={() => {
+                  this.showComponent();
+                }}
+              >
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Latest Image" />
+              </ListItem>
+            </div>
+          </List>
+
           <Divider />
-          <List>{secondaryListItems}</List>
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Typography variant="h4" gutterBottom component="h2">
             Data flow
           </Typography>
-          <SimpleLineChart />
+          {this.state.currentComponent}
         </main>
       </div>
     );

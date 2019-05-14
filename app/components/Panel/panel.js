@@ -1,5 +1,4 @@
 import React from 'react';
-import './panel.css';
 import panelFunc from './logic';
 import PanelButton from './panel_button';
 
