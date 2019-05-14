@@ -3,6 +3,7 @@ coverage
 build
 node_modules
 stats.json
+server/middlewares/config/keys.js
 
 # Cruft
 .DS_Store
