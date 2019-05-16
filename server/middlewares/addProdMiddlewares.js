@@ -1,13 +1,14 @@
 const path = require('path');
 const express = require('express');
 const compression = require('compression');
+const emails = require('./emails.js');
 
 module.exports = function addProdMiddlewares(app, options) {
   const publicPath = options.publicPath || '/';
   const outputPath = options.outputPath || path.resolve(process.cwd(), 'build');
 
   function isAuthenticated(req, res, next) {
-    if (req.user) return next();
+    if (req.user && emails.includes(req.user.email)) return next();
     return res.redirect('/');
   }
   // compression middleware compresses your server responses which makes them

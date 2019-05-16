@@ -18,7 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ViewImage from './ViewImage';
-import SimpleLineChart from './SimpleLineChart';
+import SimpleMenu from './SimpleMenu';
 
 const drawerWidth = 240;
 
@@ -102,18 +102,14 @@ const styles = theme => ({
 class Dashboard extends React.Component {
   state = {
     open: false,
-    currentComponent: <SimpleLineChart date="2019/05/10" />,
+    currentComponent: <SimpleMenu />,
     component: true,
   };
 
   showComponent = () => {
     const c = this.state.component;
     this.setState({
-      currentComponent: c ? (
-        <ViewImage />
-      ) : (
-        <SimpleLineChart date="2019/05/10" />
-      ),
+      currentComponent: c ? <ViewImage /> : <SimpleMenu />,
       component: !c,
     });
   };

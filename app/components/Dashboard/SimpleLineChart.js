@@ -10,54 +10,48 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import axios from 'axios';
 import * as d3fc from '@d3fc/d3fc-sample';
-import SimpleMenu from './SimpleMenu';
 
 class SimpleLineChart extends Component {
-  state = {
-    flow_data: [],
-  };
-
   static propTypes = {
     date: PropTypes.any,
   };
 
-  loadData() {
-    let dropDownDate = localStorage.getItem('_dropDownDate');
-    if (!dropDownDate) return false;
-
-    localStorage.removeItem('_dropDownDate');
-    dropDownDate = atob(dropDownDate);
-    dropDownDate = JSON.parse(dropDownDate);
-
-    // do something with the data here. Date located in var 'dropDownDate'
-
-    return true;
-  }
+  state = {
+    flow_data: [],
+  };
 
   formatXAxis(tickItem) {
     // If using moment.js
     return moment(tickItem).format('HH:mm');
   }
 
-  componentDidMount() {
-    console.log(this.props.date);
+  loadData() {
     axios.get(`api/GetDate/${this.props.date}`).then(res => {
-      console.log(res.data);
       const data = res.data.rows;
       const sampler = d3fc.largestTriangleThreeBucket();
       sampler
         .x(d => moment(d.key).format('X'))
         .y(d => (d.value.person ? d.value.person : 0));
-
       sampler.bucketSize(100);
       this.setState({ flow_data: sampler(data) });
     });
   }
 
+  componentDidMount() {
+    this.loadData();
+  }
+
+  /* eslint-disable no-unused-vars */
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.date !== this.props.date) {
+      this.loadData();
+    }
+  }
+
+  /* eslint-enable no-unused-vars */
   render() {
     return (
       <div>
-        <SimpleMenu />
         <ResponsiveContainer width="99%" height={320}>
           <AreaChart
             width={730}

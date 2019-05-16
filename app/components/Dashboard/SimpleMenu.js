@@ -3,11 +3,13 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import axios from 'axios';
+import SimpleLineChart from './SimpleLineChart';
 
 class SimpleMenu extends React.Component {
   state = {
     anchorEl: null,
     dates: [],
+    date: '2019/05/10',
   };
 
   componentDidMount() {
@@ -22,16 +24,11 @@ class SimpleMenu extends React.Component {
   };
 
   handleClose(dropDownDate) {
-    this.setState({ anchorEl: null });
-
-    const dropDownDateJSON = JSON.stringify(dropDownDate);
-    const dropDownDateBtoa = btoa(dropDownDateJSON);
-    localStorage.setItem('_dropDownDate', dropDownDateBtoa);
+    this.setState({ anchorEl: null, date: dropDownDate.replace(/-/g, '/') });
   }
 
   render() {
     const { anchorEl } = this.state;
-
     return (
       <div>
         <Button
@@ -56,6 +53,7 @@ class SimpleMenu extends React.Component {
               </MenuItem>
             ))}
         </Menu>
+        <SimpleLineChart date={this.state.date} />
       </div>
     );
   }

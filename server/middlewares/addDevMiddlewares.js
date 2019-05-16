@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const emails = require('./emails.js');
 
 function createWebpackMiddleware(compiler, publicPath) {
   return webpackDevMiddleware(compiler, {
@@ -27,7 +28,7 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
   const fs = middleware.fileSystem;
 
   function isAuthenticated(req, res, next) {
-    if (req.user) {
+    if (req.user && emails.includes(req.user.email)) {
       console.log(req.user);
       return next();
     }
