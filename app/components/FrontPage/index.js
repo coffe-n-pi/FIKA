@@ -121,7 +121,7 @@ function FrontPage(props) {
                     className={classes.button}
                     variant="contained"
                     color="default"
-                    fullWidth="true"
+                    fullWidth
                   >
                     Logga in
                   </Button>

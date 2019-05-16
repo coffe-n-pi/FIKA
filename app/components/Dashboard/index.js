@@ -159,13 +159,7 @@ class Dashboard extends React.Component {
             >
               Dashboard
             </Typography>
-            <Button
-              color="inherit"
-              component="h1"
-              variant="h6"
-              noWrap
-              className="Logout"
-            >
+            <Button color="inherit" component="h1" className="Logout">
               Logout
             </Button>
           </Toolbar>
