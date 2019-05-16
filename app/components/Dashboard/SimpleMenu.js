@@ -27,7 +27,6 @@ class SimpleMenu extends React.Component {
     const dropDownDateJSON = JSON.stringify(dropDownDate);
     const dropDownDateBtoa = btoa(dropDownDateJSON);
     localStorage.setItem('_dropDownDate', dropDownDateBtoa);
-    console.log(`handleClose printout: ${dropDownDateBtoa}`);
   }
 
   render() {
