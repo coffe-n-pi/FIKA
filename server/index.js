@@ -28,6 +28,12 @@ app.use(passport.session());
 /* Login to Google. */
 app.get(
   '/auth',
+  (req, res, next) => {
+    if (req.user) {
+      return res.redirect('/dashboard');
+    }
+    return next();
+  },
   passport.authenticate('google', { scope: ['profile', 'email'] }),
 );
 /* Login callback. */
