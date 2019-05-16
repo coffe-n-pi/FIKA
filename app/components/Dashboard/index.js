@@ -10,7 +10,6 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
@@ -159,9 +158,6 @@ class Dashboard extends React.Component {
             >
               Dashboard
             </Typography>
-            <Button color="inherit" component="h1" className="Logout">
-              Logout
-            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
