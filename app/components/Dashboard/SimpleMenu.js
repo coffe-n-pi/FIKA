@@ -21,9 +21,14 @@ class SimpleMenu extends React.Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  handleClose = () => {
+  handleClose(dropDownDate) {
     this.setState({ anchorEl: null });
-  };
+
+    const dropDownDateJSON = JSON.stringify(dropDownDate);
+    const dropDownDateBtoa = btoa(dropDownDateJSON);
+    localStorage.setItem('_dropDownDate', dropDownDateBtoa);
+    console.log(`handleClose printout: ${dropDownDateBtoa}`);
+  }
 
   render() {
     const { anchorEl } = this.state;
@@ -47,7 +52,9 @@ class SimpleMenu extends React.Component {
             .slice(0)
             .reverse()
             .map(date => (
-              <MenuItem onClick={this.handleClose}>{date}</MenuItem>
+              <MenuItem value={date} onClick={() => this.handleClose(date)}>
+                {date}
+              </MenuItem>
             ))}
         </Menu>
       </div>

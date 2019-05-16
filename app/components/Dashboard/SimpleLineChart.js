@@ -21,6 +21,19 @@ class SimpleLineChart extends Component {
     date: PropTypes.any,
   };
 
+  loadData() {
+    let dropDownDate = localStorage.getItem('_dropDownDate');
+    if (!dropDownDate) return false;
+
+    localStorage.removeItem('_dropDownDate');
+    dropDownDate = atob(dropDownDate);
+    dropDownDate = JSON.parse(dropDownDate);
+
+    // do something with the data here. Date located in var 'dropDownDate'
+
+    return true;
+  }
+
   formatXAxis(tickItem) {
     // If using moment.js
     return moment(tickItem).format('HH:mm');
