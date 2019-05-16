@@ -4,7 +4,7 @@ class ViewImage extends React.Component {
   state = {};
 
   render() {
-    return 'hi';
+    return <img alt="Latest" src="http://130.237.20.126:9003/video_feed" />;
   }
 }
 
